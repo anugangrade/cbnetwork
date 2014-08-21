@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  unique_url_string: MyString
+  cateogry_id: 
+
+two:
+  name: MyString
+  unique_url_string: MyString
+  cateogry_id: 

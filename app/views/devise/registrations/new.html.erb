@@ -1,0 +1,51 @@
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		<h2>Sign up</h2>
+
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<%= devise_error_messages! %>
+		<div><%= f.label :username %><br />
+		<%= f.text_field :username, autofocus: true,:class=>"form-control",:placeholder=>"User name" %></div>
+		<div><%= f.label :name %><br />
+		<%= f.text_field :name, autofocus: true,:class=>"form-control",:placeholder=>"Name" %></div>
+		<div><%= f.label :email %><br />
+		<%= f.email_field :email, autofocus: true,:class=>"form-control",:placeholder=>"Email" %></div>
+
+		<div><%= f.label :password %><br />
+		<%= f.password_field :password, autocomplete: "off" ,:class=>"form-control",:placeholder=>"Password"%></div>
+
+		<div><%= f.label :password_confirmation %><br />
+		<%= f.password_field :password_confirmation, autocomplete: "off",:class=>"form-control",:placeholder=>"Password Confirmation" %></div>
+
+		<div><%= f.label :address %><br />
+		<%= f.text_field :address, autofocus: true,:class=>"form-control",:placeholder=>"Address" %></div>
+
+		<div><%= f.label :city %><br />
+		<%= f.text_field :city, autofocus: true,:class=>"form-control",:placeholder=>"City" %></div>
+
+		<div><%= f.label :state %><br />
+		<%= f.text_field :state, autofocus: true,:class=>"form-control",:placeholder=>"State" %></div>
+
+		<div><%= f.label :country %><br />
+		<%= f.text_field :country, autofocus: true,:class=>"form-control",:placeholder=>"Country" %></div>
+
+		<div><%= f.label :zip %><br />
+		<%= f.text_field :zip, autofocus: true,:class=>"form-control",:placeholder=>"Zip Code" %></div>
+
+		<div><%= f.label :twitter_link %><br />
+		<%= f.text_field :twitter_link, autofocus: true,:class=>"form-control",:placeholder=>"Twitter Link" %></div>
+
+		<div><%= f.label :facebook_link %><br />
+		<%= f.text_field :facebook_link, autofocus: true,:class=>"form-control",:placeholder=>"Facebook Link" %></div>
+
+		<div><%= f.label :linkedin_link %><br />
+		<%= f.text_field :linkedin_link, autofocus: true,:class=>"form-control",:placeholder=>"Linkedin Link" %></div>
+		<br>
+		<div><%= f.submit "Sign up",:class=>"btn btn-primary" %></div>
+		<% end %>
+
+		<%= render "devise/shared/links" %>
+	</div>
+	<div class="col-md-2"></div>
+</div>
