@@ -1,0 +1,11 @@
+<%if !notice.nil? %>
+	<a href="#-" class="notice"><%= notice %></a>
+<%end%>
+<%if !alert.nil?%>
+	<a href="#-" class="notice"><%= alert %></a>
+<%end%>
+<script>
+setTimeout(function() {
+   $('.notice').hide(1000);
+}, 3000);
+</script>

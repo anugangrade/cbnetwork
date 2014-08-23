@@ -1,0 +1,24 @@
+<ul style="list-style:none;margin-left: -31px;margin-top: 8px;">
+  <li><a href="#-" class="sign_in_link"> Sign In </a></li>
+  <li><a href="#-" class="sign_up_link"> Sign UP </a></li>
+  <li><a href="#-" class="forget_password">Forget your password? </a></li>
+</ul>
+
+<script>
+$('.sign_up_link').click(function(){
+	$('#signinModal').modal('hide');
+	$('#forgotPasswordModal').modal('hide');
+	$('#signupModal').modal('show');
+
+})
+$('.sign_in_link').click(function(){
+	$('#forgotPasswordModal').modal('hide');
+	$('#signupModal').modal('hide');
+	$('#signinModal').modal('show');
+})
+$('.forget_password').click(function(){
+	$('#signinModal').modal('hide');
+	$('#signupModal').modal('hide');
+	$('#forgotPasswordModal').modal('show');
+})
+</script>
