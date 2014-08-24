@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, :controllers => {:registrations => "registrations",sessions: "sessions"}
   get 'home/index'
+  get "/admin/users/:id/approve_user/" => 'admin/users#approve_user', via: :get, as: "admin_approve_user"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

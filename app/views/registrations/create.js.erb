@@ -1,6 +1,7 @@
 $(".signup_error").html(""); 
 <%if @errors.blank? %>
-	window.location.href = "<%=@path%>"
+	$(".signup_error").append("<p>Your profile created wait till approved.</p>")
+	// window.location.href = "<%=@path%>"
 <%else%>
 	<% @errors.each do |name, msg| %>
 		$(".signup_error").append("<p><%=name%>&nbsp;<%=msg.first%></p>")

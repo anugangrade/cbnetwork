@@ -5,6 +5,9 @@ ruby '2.0.0'
 gem 'rails', '4.1.0'
 gem 'devise'
 gem 'pg'
+gem 'activeadmin', github: 'gregbell/active_admin'
+gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets

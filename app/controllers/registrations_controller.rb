@@ -11,7 +11,6 @@ class RegistrationsController < Devise::RegistrationsController
         respond_to do |format|
           format.js
         end
-        # return render :json => {:success => true}
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
         expire_session_data_after_sign_in!
@@ -19,7 +18,6 @@ class RegistrationsController < Devise::RegistrationsController
         respond_to do |format|
           format.js
         end
-        # return render :json => {:success => true}
       end
     else
       clean_up_passwords resource
@@ -30,21 +28,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
  
-  # Signs in a user on sign up. You can overwrite this method in your own
-  # RegistrationsController.
+ 
   def sign_up(resource_name, resource)
     sign_in(resource_name, resource)
   end
-  # def create 
-  #   @user = User.new(user_params)
-  #   if @user.save
-  #     sign_in(:user, @user)
-  #     flash[:notice]="Signed in successfully."
-  #     redirect_to root_url 
-  #   else
-  #     super
-  #   end 
-  # end
 
   def update
     super

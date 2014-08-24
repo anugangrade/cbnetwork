@@ -1,1 +1,5 @@
-window.location.assign("<%=@root%>")
+<%if @approve %>
+	window.location.assign("<%=@root%>")
+<%else%>
+$('.login_error').html('<p>Your Profile is not approved.</p>')
+<%end%>

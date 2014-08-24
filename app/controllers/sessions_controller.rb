@@ -1,8 +1,11 @@
 class SessionsController < Devise::SessionsController
   def create
-    resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
-    sign_in_and_redirect(resource_name, resource)
-  	flash[:notice]="Sign in successfully."
+    @approve=User.is_approve?(params[:user])
+    if @approve
+      resource = warden.authenticate!(:scope => resource_name, :recall => "#{controller_path}#failure")
+      sign_in_and_redirect(resource_name, resource)
+  	  flash[:notice]="Sign in successfully."
+    end  
   	respond_to do |format|
   		format.json
   		format.js
