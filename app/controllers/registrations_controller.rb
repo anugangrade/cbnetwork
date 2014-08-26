@@ -55,11 +55,11 @@ class RegistrationsController < Devise::RegistrationsController
   private
   
     def user_params
-      params.require(:user).permit(:username, :email, :password, :name, :encrypted_password, :address, :city, :state, :country, :zip, :twitter_link, :facebook_link, :linkedin_link)
+      params.require(:user).permit(:username, :email, :password, :name, :encrypted_password, :address, :city, :state, :country_name, :zip, :twitter_link, :facebook_link, :linkedin_link)
     end
 
     def update_user_params
-      params.require(:user).permit(:username, :email, :name, :address, :city, :state, :country, :zip, :twitter_link, :facebook_link, :linkedin_link)
+      params.require(:user).permit(:username, :email, :name, :address, :city, :state, :country_name, :zip, :twitter_link, :facebook_link, :linkedin_link,:avatar)
     end
   
 end

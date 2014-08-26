@@ -32,6 +32,11 @@
 
        <%= form_for(resource, as: resource_name, url: update_profile_path(resource_name), html: { method: :post }) do |f| %>
         <%= devise_error_messages! %>
+        <div>
+        <%= image_tag resource.avatar.url ,:style=>"width:100px;"%>
+        <%= f.label "Profile pic" %><br />
+          <%= f.file_field :avatar %>
+        </div>
         <div><%= f.label :username %><br />
         <%= f.text_field :username, autofocus: true,:class=>"form-control",:placeholder=>"User Name" %></div>
 

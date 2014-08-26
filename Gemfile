@@ -5,6 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.1.0'
 gem 'devise'
 gem 'pg'
+gem "paperclip"
 gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'polyamorous', github: 'activerecord-hackery/polyamorous'
 gem 'ransack', github: 'activerecord-hackery/ransack'
