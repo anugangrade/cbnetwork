@@ -83,7 +83,7 @@ Rails.application.configure do
   
   config.action_mailer.default_url_options = { :host => 'cbnetwork.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = false
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   # these options are only needed if you choose smtp delivery
   config.action_mailer.smtp_settings = {
