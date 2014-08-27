@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826172425) do
+ActiveRecord::Schema.define(version: 20140827100328) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -45,6 +45,25 @@ ActiveRecord::Schema.define(version: 20140826172425) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "advertises", force: true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "branch_id"
+    t.string   "weblink"
+    t.integer  "zone_id"
+    t.integer  "cateogry_id"
+    t.integer  "subcateogry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "advertises", ["branch_id"], name: "index_advertises_on_branch_id", using: :btree
+  add_index "advertises", ["cateogry_id"], name: "index_advertises_on_cateogry_id", using: :btree
+  add_index "advertises", ["subcateogry_id"], name: "index_advertises_on_subcateogry_id", using: :btree
+  add_index "advertises", ["zone_id"], name: "index_advertises_on_zone_id", using: :btree
 
   create_table "branches", force: true do |t|
     t.string   "name"
@@ -123,5 +142,12 @@ ActiveRecord::Schema.define(version: 20140826172425) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "zones", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "amount",     precision: 10, scale: 0
+  end
 
 end

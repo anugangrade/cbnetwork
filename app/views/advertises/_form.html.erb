@@ -1,0 +1,101 @@
+
+  
+<%= form_for(@advertise ) do |f| %>
+  <% if @advertise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@advertise.errors.count, "error") %> prohibited this advertise from being saved:</h2>
+
+      <ul>
+      <% @advertise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start_date %><br>
+    <%= f.date_select :start_date ,:class=>"form-control",:placeholder=>"Start Date"%>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title ,:class=>"form-control",:placeholder=>"Title"%>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description ,:class=>"form-control",:placeholder=>"Description"%>
+  </div>
+  <div class="field">
+    <%= f.label :branch_id %><br>
+    <select data-placeholder="Select branch from here." style="width:100%;" class="chosen-select" multiple tabindex="6">
+      <option value=""></option>
+      <% @branch.each do |b| %>
+        <option value="<%=b.id%>"><%=b.name%></option>
+      <%end%>
+    </select>
+  </div>
+  <div class="field">
+    <%= f.label :weblink %><br>
+    <%= f.text_field :weblink ,:class=>"form-control",:placeholder=>"Weblink"%>
+  </div>
+  <div class="field">
+    <%= f.label :zone %><br>
+    <%#= f.text_field :zone_id %>
+    <table style="width:100%;">
+      <tr>
+      <%@zone.each do |z|%>
+        <td>
+          <%=check_box("#{z.name}", "#{z.amount}")%>&nbsp; <strong><%=z.name%></strong>
+        </td>
+      <%end%>
+      </tr>
+    </table>
+  </div>
+  <div class="field">
+    <%= f.label :cateogry_id %><br>
+    <%= f.text_field :cateogry_id %>
+  </div>
+  <div class="field">
+    <%= f.label :subcateogry_id %><br>
+    <%= f.select(:subcateogry_id, Subcateogry.all.collect {|a| [a.name, a.id]}) %>
+  </div>
+  <div class="actions">
+    <%= f.submit(:class=>"btn btn-primary") %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+      var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+      }
+      for (var selector in config) {
+      $(selector).chosen(config[selector]);
+      }
+</script>
+
+<script>
+var branch = [];
+  $( ".search-choice" ).each(function(){
+    id=$(this).children("a").attr("data-option-array-index")
+    branch.push(id);
+  });
+alert(branch)
+
+$("#new_advertise").submit(function() {
+  $.ajax({
+    type: 'POST',
+    url: "/advertises",
+    data: branch 
+    });
+  });
+   
+</script>

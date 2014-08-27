@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_date: 2014-08-27
+  end_date: 2014-08-27
+  title: MyString
+  description: MyText
+  branch_id: 
+  weblink: MyString
+  zone_id: 
+  cateogry_id: 
+  subcateogry_id: 
+
+two:
+  start_date: 2014-08-27
+  end_date: 2014-08-27
+  title: MyString
+  description: MyText
+  branch_id: 
+  weblink: MyString
+  zone_id: 
+  cateogry_id: 
+  subcateogry_id: 
