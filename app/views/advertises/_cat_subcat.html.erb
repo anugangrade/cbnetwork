@@ -1,0 +1,38 @@
+<div class="dropdown">
+  <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
+  Select Catagory <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+  <%@catagory.each do |c|%>
+    <li class="dropdown-submenu catagory">
+      <a tabindex="-1" id="<%=c.id%>" href="#-" class=" catagory"><%=c.name%></a>
+      <%c.subcateogries.each do |sc|%>
+        <ul class="dropdown-menu">
+          <li ><a tabindex="-1" href="#-" class="subcatagory" id="<%=sc.id%>"><%=sc.name%></a></li>
+        </ul>
+      <%end%>
+    </li>
+  <%end%>  
+  </ul>
+</div>
+<script>
+
+$( document ).ready(function() {
+    var catagary_text
+    var catagary_id
+
+  $('.catagory').hover(function(){
+    catagary_text=this.text
+    catagary_id=this.id
+  })
+  $('.subcatagory').click(function(){
+    var subcatagary_text=this.text
+    var subcatagary_id=this.id
+    $('.btn-primary').text(catagary_text+" & "+subcatagary_text)
+    $('#advertise_cateogry_id').val(catagary_id)
+    $('#advertise_subcateogry_id').val(subcatagary_id)
+  })
+ });
+
+  
+</script>
