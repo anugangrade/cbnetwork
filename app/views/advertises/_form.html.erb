@@ -14,11 +14,10 @@
     <%= f.label :cateogry %><br>
     <div id="cat_subcat_name"></div>
     <%= render 'advertises/cat_subcat'%>
-    <%= f.hidden_field :cateogry_id, :value=>"" %>
-    <%= f.hidden_field :subcateogry_id, :value=>"" %>
+    <%= f.hidden_field :cateogry_id, :value=>"#{@advertise.cateogry_id}" %>
+    <%= f.hidden_field :subcateogry_id, :value=>"#{@advertise.subcateogry_id}" %>
 
   </div>
-  
   <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title ,:class=>"form-control",:placeholder=>"Title"%>
@@ -36,7 +35,7 @@
       <%end%>
     </select>
   </div>
-  <%= f.hidden_field :branch_id, :value=>"" %>
+  <%= f.hidden_field :branch_id, :value=>"#{@advertise.branch_id}" %>
   <div class="field">
     <%= f.label :weblink %><br>
     <%= f.text_field :weblink ,:class=>"form-control",:placeholder=>"Weblink"%>
@@ -50,7 +49,7 @@
       <%end%>
     </select>
   </div>
-  <%= f.hidden_field :zone_id, :value=>"" %>
+  <%= f.hidden_field :zone_id, :value=>"#{@advertise.zone_id}" %>
   <div class="field">
     <%= f.label :start_date %><br>
     <%= f.date_select :start_date ,:class=>"form-control",:placeholder=>"Start Date"%>
@@ -100,56 +99,10 @@ $('.chosen-choices').focusout(function(){
 })
 
 
+// li=$( "#branch ul" ).append("<li></li>")
+// li.addClass("search-choice")
+// li.append(" <span>branch1</span>");
+// ancor=li.append("<a class="search-choice-close" data-option-array-index="1"></a>")
    
 </script>
 
-<style>
-
-.dropdown-submenu {
-    position: relative;
-}
-
-.dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px;
-    border-radius: 0 6px 6px 6px;
-}
-
-.dropdown-submenu:hover>.dropdown-menu {
-    display: block;
-}
-
-.dropdown-submenu>a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
-    margin-top: 5px;
-    margin-right: -10px;
-}
-
-.dropdown-submenu:hover>a:after {
-    border-left-color: #fff;
-}
-
-.dropdown-submenu.pull-left {
-    float: none;
-}
-
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
-    border-radius: 6px 0 6px 6px;
-}
-</style>

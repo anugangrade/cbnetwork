@@ -1,6 +1,11 @@
 <div class="dropdown">
   <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" href="/page.html">
-  Select Catagory <span class="caret"></span>
+  <%if !@advertise.cateogry.nil?%>
+    <%= @advertise.cateogry.name+ " & "+ @advertise.subcateogry.name %>
+  <%else%>
+    Select Catagory 
+  <%end%>
+  <span class="caret"></span>
   </a>
   <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
   <%@catagory.each do |c|%>
